@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        /* Keep the existing CSS here */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #9bdcf0, #10717e);
+            margin: 10;
+            padding: 30px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Gradient Movement */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #8f3047, #d8b2ba, #3299a7, #4aad1c);
+            background-size: 400% 400%;
+            animation: moveBackground 15s ease infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveBackground {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        /* Bubbles */
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            background: rgba(10, 145, 145, 0.3);
+            border-radius: 50%;
+            animation: rise 20s infinite ease-in;
+        }
+
+        .bubble:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            left: 25%;
+            animation-duration: 5s;
+        }
+        .bubble:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            left: 40%;
+            animation-duration: 8s;
+        }
+        .bubble:nth-child(4) {
+            width: 25px;
+            height: 25px;
+            left: 60%;
+            animation-duration: 10s;
+        }
+        .bubble:nth-child(5) {
+            width: 30px;
+            height: 30px;
+            left: 75%;
+            animation-duration: 12s;
+        }
+        .bubble:nth-child(6) {
+            width: 15px;
+            height: 15px;
+            left: 85%;
+            animation-duration: 15s;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1200px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .note {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            animation: floatUp linear infinite, sway ease-in-out infinite;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+            }
+            100% {
+                transform: translateY(-10vh);
+            }
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+        }
+
+        .note:nth-child(1) {
+            left: 10%;
+            animation-duration: 20s, 6s;
+            font-size: 2.5rem;
+        }
+
+        .note:nth-child(2) {
+            left: 20%;
+            animation-duration: 25s, 7s;
+            font-size: 3rem;
+        }
+
+        .note:nth-child(3) {
+            left: 30%;
+            animation-duration: 22s, 5s;
+            font-size: 2.2rem;
+        }
+
+        .note:nth-child(4) {
+            left: 40%;
+            animation-duration: 18s, 4s;
+            font-size: 2rem;
+        }
+
+        .note:nth-child(5) {
+            left: 50%;
+            animation-duration: 28s, 8s;
+            font-size: 3rem;
+        }
+
+        .note:nth-child(6) {
+            left: 60%;
+            animation-duration: 24s, 6s;
+            font-size: 2.8rem;
+        }
+
+        .note:nth-child(7) {
+            left: 70%;
+            animation-duration: 20s, 5s;
+            font-size: 2.5rem;
+        }
+
+        .note:nth-child(8) {
+            left: 80%;
+            animation-duration: 26s, 7s;
+            font-size: 2.3rem;
+        }
+
+        .note:nth-child(9) {
+            left: 90%;
+            animation-duration: 23s, 6s;
+            font-size: 2.6rem;
+        }
+
+        .note:nth-child(10) {
+            left: 15%;
+            animation-duration: 18s, 5s;
+            font-size: 2.2rem;
+        }
+
+        .note:nth-child(11) {
+            left: 25%;
+            animation-duration: 22s, 6s;
+            font-size: 2.4rem;
+        }
+
+        .note:nth-child(12) {
+            left: 35%;
+            animation-duration: 20s, 5s;
+            font-size: 2.1rem;
+        }
+
+        .note:nth-child(13) {
+            left: 45%;
+            animation-duration: 28s, 7s;
+            font-size: 2.8rem;
+        }
+
+        .note:nth-child(14) {
+            left: 55%;
+            animation-duration: 23s, 6s;
+            font-size: 2.3rem;
+        }
+
+        .note:nth-child(15) {
+            left: 65%;
+            animation-duration: 26s, 8s;
+            font-size: 2.7rem;
+        }
+
+        .login-container {
+            background: white;
+            padding: 100px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            z-index: 1;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0c3f61;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 20px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 20px;
+            background-color: #076677;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2d8291;
+        }
+
+        .csv-button {
+            background-color: #076677;
+            margin-top: 20px;
+        }
+
+        .csv-button:hover {
+            background-color: #2d8291;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bubbles -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Musical Symbols -->
+    <div class="note">♪</div>
+    <div class="note">♫</div>
+    <div class="note">♬</div>
+    <div class="note">♪</div>
+    <div class="note">♫</div>
+    <div class="note">♬</div>
+    <div class="note">♪</div>
+    <div class="note">♫</div>
+    <div class="note">♬</div>
+    <div class="note">♪</div>
+    <div class="note">♫</div>
+    <div class="note">♬</div>
+    <div class="note">♪</div>
+    <div class="note">♫</div>
+    <div class="note">♬</div>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <!-- Name Field -->
+            <input type="text" id="login-name" placeholder="Enter your Name" required />
+            <!-- Age Field -->
+            <input type="number" id="login-age" placeholder="Enter your Age" required />
+            <!-- Gender Field -->
+            <select id="login-gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <!-- Submit Button -->
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- CSV Download Button -->
+        
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent form from submitting
+
+            // Collect user input
+            const name = document.getElementById('login-name').value;
+            const age = document.getElementById('login-age').value;
+            const gender = document.getElementById('login-gender').value;
+
+            // Display or process the user data (for example, saving it to a database or display it elsewhere)
+            console.log(`Name: ${name}, Age: ${age}, Gender: ${gender}`);
+            
+            // Redirect to dashboard after login
+            window.location.href = "dashboard.html";  // Replace with the actual path to your dashboard
+        });
+
+        function downloadCSV() {
+            // Data for CSV
+            const data = [
+                ["Name", "Age", "Gender"],
+                ["John Doe", "30", "Male"],
+                ["Jane Doe", "28", "Female"]
+            ];
+
+            // Convert data to CSV format
+            const csv = data.map(row => row.join(",")).join("\n");
+
+            // Create a download link and trigger download
+            const link = document.createElement('a');
+            link.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+            link.download = 'user_data.csv';
+            link.click();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pitta Dosha Recommendations</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9e6f1;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f4a6c4;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #d75b83;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h3 {
+      color: #f0a9b0;
+      font-size: 1.5rem;
+    }
+
+    .recommendations {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .recommendation {
+      padding: 15px;
+      background-color: #f7e1e9;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .recommendation h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .recommendation p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      background-color: #f4a6c4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #f06292;
+    }
+
+    footer {
+      background-color: #f4a6c4;
+      text-align: center;
+      padding: 15px;
+      font-size: 1rem;
+      color: white;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #961e5a;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #db79af;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Pitta Dosha Recommendations for Yoga, Music & Meditation
+  </header>
+
+  <div class="container">
+    <div class="section">
+      <h2>Yoga Asanas for Pitta Dosha</h2>
+      <div class="recommendations" id="yoga-recommendations">
+        <!-- Yoga Recommendations will appear here dynamically -->
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Music for Pitta Dosha</h2>
+      <div class="recommendations" id="music-recommendations">
+        <!-- Music Recommendations will appear here dynamically -->
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Meditation Techniques for Pitta Dosha</h2>
+      <div class="recommendations" id="meditation-recommendations">
+        <!-- Meditation Recommendations will appear here dynamically -->
+      </div>
+    </div>
+
+    <button onclick="getRecommendations()">Show Recommendations</button>
+    
+  </div>
+
+  <footer>
+    © 2025 Pitta Dosha Wellness | All Rights Reserved
+  </footer>
+
+  <script>
+    // Yoga, Music, and Meditation Suggestions for Pitta Dosha
+    const yogaRecommendations = [
+      { name: 'Child’s Pose (Balasana)', description: 'Helps calm the mind and release tension in the body.' },
+      { name: 'Forward Fold (Uttanasana)', description: 'Relieves stress and cools the body down.' },
+      { name: 'Corpse Pose (Savasana)', description: 'Promotes relaxation and mental clarity.' }
+    ];
+
+    const musicRecommendations = [
+      { name: 'Calming instrumental', description: 'Soothing tunes to help cool your inner fire.' },
+      { name: 'Nature sounds', description: 'Listen to the sound of rain or ocean to balance Pitta.' },
+      { name: 'Classical music', description: 'Music that promotes serenity and calmness.' }
+    ];
+
+    const meditationRecommendations = [
+      { name: 'Guided breathing', description: 'Deep breathing techniques to calm the mind and body.' },
+      { name: 'Mantra meditation', description: 'Chanting mantras to cool and calm excessive heat.' },
+      { name: 'Mindfulness meditation', description: 'Focus on the present moment to reduce stress.' }
+    ];
+
+    function getRecommendations() {
+      displayRecommendations('yoga-recommendations', yogaRecommendations);
+      displayRecommendations('music-recommendations', musicRecommendations);
+      displayRecommendations('meditation-recommendations', meditationRecommendations);
+    }
+
+    function displayRecommendations(elementId, recommendations) {
+      const container = document.getElementById(elementId);
+      container.innerHTML = '';  // Clear any previous content
+
+      recommendations.forEach(rec => {
+        const recommendationElement = document.createElement('div');
+        recommendationElement.classList.add('recommendation');
+        recommendationElement.innerHTML = `
+          <h4>${rec.name}</h4>
+          <p>${rec.description}</p>
+        `;
+        container.appendChild(recommendationElement);
+      });
+    }
+  </script>
+
+</body>
+</html>

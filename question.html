@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dosha Quiz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .quiz-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 90%;
+    }
+
+    h2 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+
+    button {
+      background-color: #2980b9;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #1f6fa5;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h2>Dosha Assessment Quiz</h2>
+
+    <form id="doshaForm">
+      <div class="question">
+        <p>1. What best describes your body frame?</p>
+        <label><input type="radio" name="q1" value="Vata" required> Thin, light frame, finds it hard to gain weight</label>
+        <label><input type="radio" name="q1" value="Pitta"> Medium build, muscular, gains/loses weight easily</label>
+        <label><input type="radio" name="q1" value="Kapha"> Large build, gains weight easily</label>
+      </div>
+
+      <div class="question">
+        <p>2. What is your skin type?</p>
+        <label><input type="radio" name="q2" value="Vata" required> Dry, rough, cold</label>
+        <label><input type="radio" name="q2" value="Pitta"> Warm, sensitive, may have acne</label>
+        <label><input type="radio" name="q2" value="Kapha"> Soft, oily, thick</label>
+      </div>
+
+      <div class="question">
+        <p>3. How is your digestion?</p>
+        <label><input type="radio" name="q3" value="Vata" required> Irregular, may skip meals or get bloated</label>
+        <label><input type="radio" name="q3" value="Pitta"> Strong appetite, gets irritated if meals are delayed</label>
+        <label><input type="radio" name="q3" value="Kapha"> Slow digestion, can feel heavy after meals</label>
+      </div>
+
+      <div class="question">
+        <p>4. What is your emotional tendency?</p>
+        <label><input type="radio" name="q4" value="Vata" required> Anxious, worried, restless</label>
+        <label><input type="radio" name="q4" value="Pitta"> Angry, irritable, perfectionist</label>
+        <label><input type="radio" name="q4" value="Kapha"> Calm, steady, resistant to change</label>
+      </div>
+
+      <div class="question">
+        <p>5. What is your sleep pattern like?</p>
+        <label><input type="radio" name="q5" value="Vata" required> Light sleeper, may wake up often</label>
+        <label><input type="radio" name="q5" value="Pitta"> Moderate, but wakes up if overheated or disturbed</label>
+        <label><input type="radio" name="q5" value="Kapha"> Heavy sleeper, sleeps long and deeply</label>
+      </div>
+
+      <div class="question">
+        <p>6. How is your energy level?</p>
+        <label><input type="radio" name="q6" value="Vata" required> Bursts of energy, then tired</label>
+        <label><input type="radio" name="q6" value="Pitta"> Consistent, intense energy</label>
+        <label><input type="radio" name="q6" value="Kapha"> Slow but steady energy, may feel lethargic</label>
+      </div>
+
+      <button type="button" onclick="calculateDosha()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculateDosha() {
+      const form = document.getElementById('doshaForm');
+      const formData = new FormData(form);
+
+      let counts = { Vata: 0, Pitta: 0, Kapha: 0 };
+
+      for (let [_, value] of formData.entries()) {
+        counts[value]++;
+      }
+
+      let dominantDosha = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+
+      document.getElementById("result").innerHTML =
+        `🧘 You are likely <strong>${dominantDosha}</strong> dominant.`;
+
+      // Redirect based on dominant dosha
+      setTimeout(function() {
+        if (dominantDosha === "Pitta") {
+          window.location.href = "pitta.html"; // Redirect to pitta.html
+        } else if (dominantDosha === "Vata") {
+          window.location.href = "vata.html"; // Redirect to vata.html
+        } else if (dominantDosha === "Kapha") {
+          window.location.href = "kapha.html"; // Redirect to kapha.html
+        }
+      }, 2000); // Redirect after 2 seconds for better user experience
+    }
+  </script>
+</body>
+</html>

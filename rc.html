@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Health Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            color: #1e3a8a; /* Deep Blue */
+        }
+        .profile {
+            background-color: #fce7f3; /* Light Pink */
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile h2 {
+            color: #1e3a8a; /* Deep Blue */
+        }
+        .dashboard-options {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .dashboard-option {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 48%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dashboard-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        .dashboard-option h2 {
+            color: #db2777; /* Pink */
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+        .dashboard-option p {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 12px 25px;
+            background-color: #1e3a8a; /* Deep Blue */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .button:hover {
+            background-color: #2563eb; /* Bright Blue */
+            transform: scale(1.05);
+        }
+
+        /* Accordion Style */
+        .accordion {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion:hover {
+            background-color: #f3f4f6;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .accordion-content p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e1e1e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Health Dashboard</h1>
+
+        <!-- Profile Information -->
+        <div class="profile">
+            <h2 id="profile-name">John Doe</h2>
+            <p>Welcome, <span id="profile-username"></span>!</p>
+        </div>
+
+        <!-- Dashboard Options -->
+        <div class="dashboard-options">
+            <div class="dashboard-option">
+                <h2>1. Take the Dosha Quiz</h2>
+                <p>Select a quiz to determine your Dosha type.</p>
+                <a href="question.html" class="button">Take Quiz</a>
+            </div>
+
+            <div class="dashboard-option">
+                <h2>2. Get Health Recommendations</h2>
+                <p>Select a health issue to receive personalized recommendations.</p>
+                <a href="#recommendations" class="button">Get Recommendations</a>
+            </div>
+        </div>
+
+        <!-- Health Recommendations Section -->
+        <div id="recommendations" class="recommendation-section">
+            <h2>Health Recommendations</h2>
+
+            <!-- Accordion for Health Issues -->
+            <div class="accordion">
+                <h3>Headache Relief</h3>
+            </div>
+            <div class="accordion-content">
+                <p><strong>Ragas:</strong> Listen to <strong>Raga Yaman</strong> or <strong>Raga Hamsadhwani</strong> to calm the mind and alleviate headaches.</p>
+                <p><strong>Yoga Poses:</strong> Try <strong>Child's Pose</strong>, <strong>Seated Forward Bend</strong>, or <strong>Legs Up the Wall</strong> for relief.</p>
+                <p><strong>Frequency Sounds:</strong> Play <strong>528 Hz</strong> or <strong>432 Hz</strong> healing frequencies for headache relief.</p>
+            </div>
+
+            <div class="accordion">
+                <h3>Heart Pain Relief</h3>
+            </div>
+            <div class="accordion-content">
+                <p><strong>Ragas:</strong> Listen to <strong>Raga Desh</strong> or <strong>Raga Bageshree</strong> for a soothing effect.</p>
+                <p><strong>Yoga Poses:</strong> Try <strong>Cobra Pose</strong>, <strong>Bridge Pose</strong>, or <strong>Fish Pose</strong> to open the chest and relieve tension.</p>
+                <p><strong>Frequency Sounds:</strong> Listen to <strong>174 Hz</strong> or <strong>963 Hz</strong> frequency sounds to help relax the heart.</p>
+            </div>
+
+            <div class="accordion">
+                <h3>Back Pain Relief</h3>
+            </div>
+            <div class="accordion-content">
+                <p><strong>Ragas:</strong> Listen to <strong>Raga Marwa</strong> to help alleviate physical discomfort.</p>
+                <p><strong>Yoga Poses:</strong> Perform <strong>Downward Dog</strong>, <strong>Cobra Pose</strong>, and <strong>Seated Twist</strong> to stretch and strengthen the back.</p>
+                <p><strong>Frequency Sounds:</strong> Play <strong>432 Hz</strong> or <strong>174 Hz</strong> sounds to relax and ease back pain.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Health Dashboard. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Simulating login and storing user data in localStorage
+        function loginUser() {
+            localStorage.setItem("username", "johndoe123");
+            localStorage.setItem("name", "John Doe");
+        }
+
+        // This function retrieves the user data and updates the profile section
+        function updateProfile() {
+            const username = localStorage.getItem("username");
+            const name = localStorage.getItem("name");
+
+            if (username && name) {
+                document.getElementById("profile-username").textContent = username;
+                document.getElementById("profile-name").textContent = name;
+            } else {
+                // If user data is not found, log them in for this demo
+                loginUser();
+                updateProfile();
+            }
+        }
+
+        // Update profile when the page loads
+        updateProfile();
+
+        // Accordion functionality
+        const accordions = document.querySelectorAll(".accordion");
+        accordions.forEach(acc => {
+            acc.addEventListener("click", function() {
+                const content = this.nextElementSibling;
+                const isOpen = content.style.display === "block";
+
+                // Close all other accordion contents
+                document.querySelectorAll(".accordion-content").forEach(content => {
+                    content.style.display = "none";
+                });
+
+                // Toggle the clicked accordion content
+                content.style.display = isOpen ? "none" : "block";
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin_dashboard.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://your-image-link.com/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            padding-top: 50px;
+            transition: background 0.5s ease-in-out;
+            background-image: url(https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=600);
+            background-repeat: no-repeat;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            width: 250px;
+            margin-bottom: 20px;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            display: none;
+            text-align: left;
+        }
+        .menu li {
+            margin: 10px 0;
+        }
+        .menu a {
+            text-decoration: none;
+            color: white;
+            background: #007BFF;
+            padding: 12px 25px;
+            border-radius: 8px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .menu a:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+        .btn {
+            background: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #218838;
+            transform: scale(1.1);
+        }
+        #content {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all 0.3s ease-in-out;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .main {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            width: 250px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card h3 {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <button class="btn" onclick="toggleMenu()">Admin</button>
+            <ul class="menu" id="menu">
+                <li><a onclick="loadMusicPage()">🎵 Music</a></li>
+                <li><a onclick="loadRagasPage()">🎻 Ragas</a></li>
+                <li><a href="#">🧘 Yoga</a></li>
+                <li><a href="#">🚪 Log out</a></li>
+            </ul>
+        </div>
+        
+        <div id="content" class="fade-in"></div>
+    </div>
+    
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+        }
+
+        function loadMusicPage() {
+            document.getElementById("content").innerHTML = `
+                <h1 style="color: #007BFF;">🎶 THE MUSIC THAT RELIEVES PAIN 🎶</h1>
+                <div class="main">
+                    <div class="card">
+                        <h3>Traditional Music</h3>
+                        <button class="btn" onclick="showInfo('Traditional Music', '🎵 Soothing melodies from different cultures, often used for relaxation and healing.')">Learn More</button>
+                    </div>
+                    <div class="card">
+                        <h3>Ancient Music</h3>
+                        <button class="btn" onclick="showInfo('Ancient Music', '🎼 Harmonic sounds used in ancient civilizations for meditation and well-being.')">Learn More</button>
+                    </div>
+                    <div class="card">
+                        <h3>Holy Music</h3>
+                        <button class="btn" onclick="showInfo('Holy Music', '⛪ Sacred music that inspires peace and spiritual healing.')">Learn More</button>
+                    </div>
+                </div>
+                <div id="info" class="fade-in" style="margin-top: 20px;"></div>
+            `;
+        }
+
+        function loadRagasPage() {
+            document.getElementById("content").innerHTML = `
+                <h1 style="color: #007BFF;">🎻 Types of Ragas in Hindu Music 🎻</h1>
+                <div class="main">
+                    <div class="card">
+                        <h3>Raag Bhairav</h3>
+                        <button class="btn" onclick="showInfo('Raag Bhairav', '🕉️ A peaceful and meditative raag, usually played in the early morning.')">Learn More</button>
+                    </div>
+                    <div class="card">
+                        <h3>Raag Yaman</h3>
+                        <button class="btn" onclick="showInfo('Raag Yaman', '🌙 A soothing raag often played in the evening, bringing a sense of devotion.')">Learn More</button>
+                    </div>
+                    <div class="card">
+                        <h3>Raag Bageshree</h3>
+                        <button class="btn" onclick="showInfo('Raag Bageshree', '🎶 A deep and romantic raag, typically played at night.')">Learn More</button>
+                    </div>
+                    <div class="card">
+                        <h3>Raag Todi</h3>
+                        <button class="btn" onclick="showInfo('Raag Todi', '🌄 A powerful raag associated with devotion and played in the morning.')">Learn More</button>
+                    </div>
+                </div>
+                <div id="info" class="fade-in" style="margin-top: 20px;"></div>
+            `;
+        }
+
+        function showInfo(title, description) {
+            document.getElementById("info").innerHTML = `<h2 style="color: #28a745;">${title}</h2><p>${description}</p>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In</title>
+  <style>
+    /* Import Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #9bdcf0, #10717e);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Gradient Movement */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, #8f3047, #d8b2ba, #3299a7, #4aad1c);
+      background-size: 400% 400%;
+      animation: moveBackground 15s ease infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveBackground {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    .note {
+        position: absolute;
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.7);
+        animation: floatUp linear infinite, sway ease-in-out infinite;
+        user-select: none;
+        pointer-events: none;
+    }
+    
+    @keyframes floatUp {
+        0% {
+            transform: translateY(100vh);
+        }
+        100% {
+            transform: translateY(-10vh);
+        }
+    }
+    
+    @keyframes sway {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(20px);
+        }
+    }
+    
+    /* Adjusting Positions and Sizes of Symbols */
+    .note:nth-child(1) {
+        left: 10%;
+        animation-duration: 20s, 6s;
+        font-size: 2.5rem;
+    }
+    
+    .note:nth-child(2) {
+        left: 20%;
+        animation-duration: 25s, 7s;
+        font-size: 3rem;
+    }
+    
+    .note:nth-child(3) {
+        left: 30%;
+        animation-duration: 22s, 5s;
+        font-size: 2.2rem;
+    }
+    
+    .note:nth-child(4) {
+        left: 40%;
+        animation-duration: 18s, 4s;
+        font-size: 2rem;
+    }
+    
+    .note:nth-child(5) {
+        left: 50%;
+        animation-duration: 28s, 8s;
+        font-size: 3rem;
+    }
+    
+    .note:nth-child(6) {
+        left: 60%;
+        animation-duration: 24s, 6s;
+        font-size: 2.8rem;
+    }
+    
+    .note:nth-child(7) {
+        left: 70%;
+        animation-duration: 20s, 5s;
+        font-size: 2.5rem;
+    }
+    
+    .note:nth-child(8) {
+        left: 80%;
+        animation-duration: 26s, 7s;
+        font-size: 2.3rem;
+    }
+    
+    .note:nth-child(9) {
+        left: 90%;
+        animation-duration: 23s, 6s;
+        font-size: 2.6rem;
+    }
+    
+    .note:nth-child(10) {
+        left: 15%;
+        animation-duration: 18s, 5s;
+        font-size: 2.2rem;
+    }
+    
+    .note:nth-child(11) {
+        left: 25%;
+        animation-duration: 22s, 6s;
+        font-size: 2.4rem;
+    }
+    
+    .note:nth-child(12) {
+        left: 35%;
+        animation-duration: 20s, 5s;
+        font-size: 2.1rem;
+    }
+    
+    .note:nth-child(13) {
+        left: 45%;
+        animation-duration: 28s, 7s;
+        font-size: 2.8rem;
+    }
+    
+    .note:nth-child(14) {
+        left: 55%;
+        animation-duration: 23s, 6s;
+        font-size: 2.3rem;
+    }
+    
+    .note:nth-child(15) {
+        left: 65%;
+        animation-duration: 26s, 8s;
+        font-size: 2.7rem;
+    }
+    
+
+    
+    
+    
+    /* Bubbles */
+    .bubbles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      width: 40px;
+      height: 40px;
+      background: rgba(10, 145, 145, 0.3);
+      border-radius: 50%;
+      animation: rise 20s infinite ease-in;
+    }
+
+    .bubble:nth-child(2) {
+      width: 20px;
+      height: 20px;
+      left: 25%;
+      animation-duration: 5s;
+    }
+    .bubble:nth-child(3) {
+      width: 50px;
+      height: 50px;
+      left: 40%;
+      animation-duration: 8s;
+    }
+    .bubble:nth-child(4) {
+      width: 25px;
+      height: 25px;
+      left: 60%;
+      animation-duration: 10s;
+    }
+    .bubble:nth-child(5) {
+      width: 30px;
+      height: 30px;
+      left: 75%;
+      animation-duration: 12s;
+    }
+    .bubble:nth-child(6) {
+      width: 15px;
+      height: 15px;
+      left: 85%;
+      animation-duration: 15s;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1200px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* Container */
+    .container {
+      background-color: white;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      text-align: center;
+      position: relative;
+      animation: slideFadeIn 1s ease forwards;
+      z-index: 1;
+    }
+
+    @keyframes slideFadeIn {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Marquee Section */
+    .welcome-marquee {
+      background: linear-gradient(to right, #088f84, #17aa6d);
+      color: white;
+      padding: 8px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+
+    .welcome-marquee marquee {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Form Title */
+    h2 {
+      margin-bottom: 25px;
+      color: #2c3e50;
+      font-size: 28px;
+    }
+
+    /* Input Groups */
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 14px 10px 14px 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: none;
+      outline: none;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 14px;
+      left: 12px;
+      font-size: 14px;
+      color: #aaa;
+      background-color: white;
+      padding: 0 5px;
+      transition: 0.3s ease;
+      pointer-events: none;
+    }
+
+    .input-group input:focus + label,
+    .input-group select:focus + label,
+    .input-group input:not(:placeholder-shown) + label {
+      top: -10px;
+      left: 8px;
+      font-size: 12px;
+      color: #6a11cb;
+      font-weight: bold;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      border-color: #6a11cb;
+      box-shadow: 0 0 8px rgba(106, 17, 203, 0.4);
+    }
+
+    /* Button */
+    button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #1a9cd8, #108a65);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0px 5px 15px rgba(106, 17, 203, 0.5);
+    }
+
+    button.loading::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 3px solid white;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bubbles">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+  </div>
+
+  <div class="container">
+    <div class="welcome-marquee">
+      <marquee behavior="scroll" direction="left" scrollamount="6">
+        🎶 Welcome to Healing Music Recommender 🎶
+      </marquee>
+    </div>
+
+    <h2>Sign In</h2>
+    <form id="sign-in-form">
+      <div class="input-group">
+        <input type="text" id="name" placeholder=" " required />
+        <label for="name">Enter your Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="number" id="age" placeholder=" " required />
+        <label for="age">Enter your Age</label>
+      </div>
+
+
+      <div class="input-group">
+        <select id="gender" required>
+          <option value="" disabled selected hidden></option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <label for="gender">Select Gender</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="contact" placeholder=" " required />
+        <label for="contact">Enter your Contact</label>
+      </div>
+
+      <button type="submit" id="submitBtn">Sign In</button>
+    </form>
+  </div>
+  <div class="note">🎵</div>
+<div class="note">🎶</div>
+<div class="note">♬</div>
+<div class="note">🎵</div>
+<div class="note">🎶</div>
+<div class="note">♬</div>
+<div class="note">🎵</div>
+<div class="note">🎶</div>
+<div class="note">♬</div>
+<div class="note">🎵</div>
+<div class="note">🎶</div>
+<div class="note">♬</div>
+<div class="note">🎵</div>
+<div class="note">🎶</div>
+<div class="note">♬</div>
+
+
+  <script>
+    document.getElementById('sign-in-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const button = document.getElementById('submitBtn');
+      button.classList.add('loading');
+      button.disabled = true;
+
+      setTimeout(() => {
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const gender = document.getElementById('gender').value;
+        const contact = document.getElementById('contact').value;
+
+        if (!name || !age || !gender || !contact) {
+          alert('Please fill in all the fields.');
+          button.classList.remove('loading');
+          button.disabled = false;
+          return;
+        }
+
+        const user = { name, age, gender, contact };
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        const existingUser = users.find(u => u.name === name && u.age == age && u.gender === gender);
+        if (existingUser) {
+          alert('User already exists!');
+          button.classList.remove('loading');
+          button.disabled = false;
+          return;
+        }
+
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+
+        alert('Sign-In successful! Redirecting to login...');
+        window.location.href = "login.html";
+      }, 1200);
+    });
+  </script>
+
+</body>
+</html>

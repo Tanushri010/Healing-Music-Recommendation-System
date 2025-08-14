@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        /* Internal CSS for styling the dashboard page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #47a7b8;
+            margin: 0;
+            padding: 0;
+            color: violet;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgb(33, 128, 131);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(60, 101, 133, 0.1);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Profile Styling - top-right corner */
+        .profile {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+            color: hotpink;
+        }
+
+        .profile h2 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .profile p {
+            font-size: 1rem;
+            margin: 0;
+            color: #743a9e;
+        }
+
+        .small-dashboard-options {
+            display: flex;
+            justify-content: center; /* center the boxes */
+            align-items: stretch;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 900px; /* limit total width */
+            margin: 50px auto; /* center the whole section */
+        }
+
+        .dashboard-options {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 80px;
+            flex-wrap: wrap;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; /* center horizontally */
+            align-items: center; /* center vertically if you want */
+            gap: 20px; /* space between the two buttons */
+            margin-top: 30px;
+        }
+
+        /* Optional: style the buttons */
+        .button-container a {
+            padding: 15px 25px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container a:hover {
+            background-color: #45a049;
+        }
+
+        .dashboard-option {
+            width: 90%; /* or 100% */
+            max-width: 1200px; /* so it doesn't stretch too much */
+            padding: 20px;
+            background-color: #9dc2c7;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin: 0 auto; /* center it nicely */
+        }
+
+        .dashboard-option:hover {
+            transform: translateY(-10px);
+        }
+
+        .dashboard-option h2 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-option p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #0e4b48;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #29a9ad;
+        }
+
+        .button:active {
+            transform: scale(0.98);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .dashboard-option {
+                width: 100%;
+                max-width: 350px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Profile Information (Top-right corner) -->
+    <div class="profile">
+        <h2 id="profile-name"></h2>
+        <p>Welcome, <span id="profile-username"></span>!</p>
+    </div>
+
+    <!-- Main Dashboard Container -->
+    <div class="container">
+        <h1>Welcome to Your Dashboard</h1>
+        
+        <!-- Dashboard Options -->
+        <div class="dashboard-options">
+            <div class="dashboard-option">
+                <h2>1. Take the Dosha Quiz</h2>
+                <p>Select a quiz to determine your Dosha type.</p>
+                <a href="question.html" class="button">Take Quiz</a>
+            </div>
+            
+            <div class="dashboard-option">
+                <h2>2. Get Health Recommendations</h2>
+                <p>Select a health issue to receive personalized recommendations.</p>
+                <a href="https://healing-music-recommender-ep89rphjnvgnamwxqh39rd.streamlit.app/>" class="button">Open Healing Music Recommender</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 2025 Health Dashboard. All rights reserved.</p>
+    </div>
+
+    <div class="dashboard-option">
+        <h2>3. Power BI Insights</h2>
+        <p>View the latest insights from your data.</p>
+    
+        <img src="1.png" alt="Power BI Report" style="width:100%; border-radius:20px; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin-top:15px;">
+        <img src="2.png" alt="Power BI Report" style="width:100%; border-radius:20px; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin-top:15px;">
+        <img src="3.png" alt="Power BI Report" style="width:100%; border-radius:20px; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin-top:15px;">
+        <img src="41.png" alt="Power BI Report" style="width:100%; border-radius:20px; box-shadow:0 4px 8px rgba(0,0,0,0.1); margin-top:15px;">
+    </div>
+
+    <script>
+        // JavaScript for displaying user profile and dashboard options
+        window.onload = function() {
+            // Retrieve the stored username from localStorage
+            const username = localStorage.getItem("login-name");
+
+            console.log("Stored username:", login-name);  // Debugging step
+
+            if (username) {
+                // Display the username on the dashboard
+                document.getElementById("profile-login-name").innerText = login-name;
+                document.getElementById("profile-login-name").innerText = `Hello, ${login-name}!`;
+            } else {
+                // If no username found, redirect to login page
+                window.location.href = "login.html";
+            }
+        };
+    </script>
+</body>
+</html>
